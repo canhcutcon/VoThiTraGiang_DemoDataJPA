@@ -1,19 +1,22 @@
-package entity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+package com.example.entity;
 
-import javax.persistence.*;
+import lombok.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Setter
+@Getter
 @Builder
 @Table(name = "chuyenbay")
-public class ChuyenBay {
-
+public class ChuyenBay implements Serializable {
     @Id
     @Column(name = "MaCB", unique=true)
     private String MaCB;
@@ -25,14 +28,16 @@ public class ChuyenBay {
     private String GaDen;
 
     @Column(name = "DoDai")
-    private int DoDai;
+    private Integer DoDai;
 
     @Column(name = "GioDi")
-    private int GioDi;
+    private Integer GioDi;
 
     @Column(name = "GioDen")
-    private int GioDen;
+    private Integer GioDen;
 
     @Column(name = "ChiPhi")
-    private int ChiPhi;
+    private Integer ChiPhi;
+
+
 }
