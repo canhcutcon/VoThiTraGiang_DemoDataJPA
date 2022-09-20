@@ -2,11 +2,11 @@ package com.example.entity;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
@@ -26,5 +26,8 @@ public class NhanVien implements Serializable {
 
     @Column(name = "Luong")
     private Integer Luong;
+
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "nhanvien")
+//    private Collection<ChungNhan> lstChungNhan;
 
 }

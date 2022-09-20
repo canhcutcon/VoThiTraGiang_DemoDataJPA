@@ -16,6 +16,10 @@ public interface MayBayReponsitory extends JpaRepository<MayBay,Integer> {
             "from maybay where Loai like '%Boeing%'",nativeQuery = true)
     public Integer mayBayBoing();
 
+    @Query(value = "select * from maybay m join chungnhan c on m.MaMB = c.MaMB\n" +
+            "                          join nhanvien nv on nv.MaNV = c.MaNV\n" +
+            "where nv.Ten like '%Nguyen%'",nativeQuery = true)
+    public List<MayBay> lstMMayBayDoPhiCongHoNguyenLai();
 
 
 }

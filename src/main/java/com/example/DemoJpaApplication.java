@@ -1,15 +1,10 @@
 package com.example;
 
-import com.example.reponsitory.NhanVienReponsitory;
-import com.example.service.ChungNhanService;
 import com.example.service.ChuyenBayService;
 import com.example.service.MayBayService;
 import com.example.service.NhanVienService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
 import javax.annotation.PostConstruct;
 
@@ -18,69 +13,61 @@ import javax.annotation.PostConstruct;
 public class DemoJpaApplication {
     final ChuyenBayService chuyenBayService;
     final MayBayService mayBayService;
-    final ChungNhanService chungNhanService;
     final NhanVienService nhanVienService;
 
     public DemoJpaApplication(ChuyenBayService chuyenBayService,
-                              MayBayService mayBayService, ChungNhanService chungNhanService,NhanVienService nhanVienService) {
+                              MayBayService mayBayService, NhanVienService nhanVienService) {
         this.chuyenBayService = chuyenBayService;
         this.nhanVienService = nhanVienService;
         this.mayBayService = mayBayService;
-        this.chungNhanService = chungNhanService;
     }
     public static void main(String[] args) {
         SpringApplication.run(DemoJpaApplication.class, args);
     }
     @PostConstruct
     void postConstruct(){
-        System.out.println("1.\tCho biết các chuyến bay đi Đà Lạt (DAD).");
-        chuyenBayService.displayAllChuyenBay();
-        System.out.println("!================================================!");
-
-        System.out.println("2.Cho biết các loại máy bay có tầm bay lớn hơn 10,000km");
-        mayBayService.displayMayBayTamBayLonHon10000();
-        System.out.println("!================================================!");
-
-        System.out.println("3.\tTìm các nhân viên có lương nhỏ hơn 10,000.");
-        nhanVienService.getNhanVien().lstNhanVien()
-                .forEach(System.out::println);
-        System.out.println("!================================================!");
-
-        System.out.println("4.\tCho biết các chuyến bay có độ dài đường bay nhỏ hơn 10.000km và lớn hơn 8.000km.");
-        chuyenBayService.getChuyenBay().chuyenBayDoDaiNhoHon10000()
-                .forEach(System.out::println);
-        System.out.println("!================================================!");
-
-        System.out.println("5.\tCho biết các chuyến bay xuất phát từ Sài Gòn (SGN) đi Ban Mê Thuộc (BMV).");
-        chuyenBayService.getChuyenBay().chuyenBaySGDiBuonMe()
-                .forEach(System.out::println);
-        System.out.println("!================================================!");
-
-        System.out.println("6.\tCó bao nhiêu chuyến bay xuất phát từ Sài Gòn (SGN).");
-        chuyenBayService.getChuyenBay().chuyenBaySG()
-                .forEach(System.out::println);
-        System.out.println("!================================================!");
-
-        System.out.println("7.\tCó bao nhiêu loại máy báy Boeing.");
-        System.out.println(mayBayService.getMayBay().mayBayBoing());
-        System.out.println("!================================================!");
-
-        System.out.println("8.\tCho biết tổng số lương phải trả cho các nhân viên..");
-        System.out.println(nhanVienService.getNhanVien().getToTalOfSalary());
-        System.out.println("!================================================!");
+//        System.out.println("1.\tCho biết các chuyến bay đi Đà Lạt (DAD).");
+//        chuyenBayService.displayAllChuyenBay();
+//        System.out.println("!================================================!");
+//
+//        System.out.println("2.Cho biết các loại máy bay có tầm bay lớn hơn 10,000km");
+//        mayBayService.displayMayBayTamBayLonHon10000();
+//        System.out.println("!================================================!");
+//
+//        System.out.println("3.\tTìm các nhân viên có lương nhỏ hơn 10,000.");
+//        nhanVienService.getNhanVien().lstNhanVien()
+//                .forEach(System.out::println);
+//        System.out.println("!================================================!");
+//
+//        System.out.println("4.\tCho biết các chuyến bay có độ dài đường bay nhỏ hơn 10.000km và lớn hơn 8.000km.");
+//        chuyenBayService.getChuyenBay().chuyenBayDoDaiNhoHon10000()
+//                .forEach(System.out::println);
+//        System.out.println("!================================================!");
+//
+//        System.out.println("5.\tCho biết các chuyến bay xuất phát từ Sài Gòn (SGN) đi Ban Mê Thuộc (BMV).");
+//        chuyenBayService.getChuyenBay().chuyenBaySGDiBuonMe()
+//                .forEach(System.out::println);
+//        System.out.println("!================================================!");
+//
+//        System.out.println("6.\tCó bao nhiêu chuyến bay xuất phát từ Sài Gòn (SGN).");
+//        chuyenBayService.getChuyenBay().chuyenBaySG()
+//                .forEach(System.out::println);
+//        System.out.println("!================================================!");
+//
+//        System.out.println("7.\tCó bao nhiêu loại máy báy Boeing.");
+//        System.out.println(mayBayService.getMayBay().mayBayBoing());
+//        System.out.println("!================================================!");
+//
+//        System.out.println("8.\tCho biết tổng số lương phải trả cho các nhân viên..");
+//        System.out.println(nhanVienService.getNhanVien().getToTalOfSalary());
+//        System.out.println("!================================================!");
 
         System.out.println("9.\tCho biết mã số của các phi công lái máy báy Boeing.");
-//        chungNhanService.getChungNhan().findAll().forEach(System.out::println);
+//        nhanVienService.getNhanVien().maNhanVienBoeing();
         System.out.println("!================================================!");
 //
-//        System.out.println("10.\tCho biết các nhân viên có thể lái máy bay có mã số 747");
-//        mayBayService.displayMayBayTamBayLonHon10000();
-//        System.out.println("!================================================!");
 //
-//        System.out.println("11.\tCho biết mã số của các loại máy bay mà nhân viên có họ Nguyễn có thể lái.");
-//        mayBayService.displayMayBayTamBayLonHon10000();
-//        System.out.println("!================================================!");
-//
+
 //        System.out.println("12.\tCho biết mã số của các phi công vừa lái được Boeing vừa lái được Airbus.");
 //        mayBayService.displayMayBayTamBayLonHon10000();
 //        System.out.println("!================================================!");

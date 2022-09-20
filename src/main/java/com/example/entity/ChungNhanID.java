@@ -1,18 +1,18 @@
 package com.example.entity;
 
-import lombok.*;
-
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.EmbeddedId;
 import java.io.Serializable;
 
-@Embeddable
+//@Embeddable
 public class ChungNhanID implements Serializable {
+    @Basic(optional = false)
+    @Column(name = "MaNV")
+    private String MaNV;
 
-    @ManyToOne
-    @JoinColumn(name = "MaMV")
-    private NhanVien MaNV;
-
-    @ManyToOne
-    @JoinColumn(name = "MaNB")
-    private MayBay MaMB;
+    @Basic(optional = false)
+    @Column(name = "MaMB")
+    private Integer MaMB;
 }
