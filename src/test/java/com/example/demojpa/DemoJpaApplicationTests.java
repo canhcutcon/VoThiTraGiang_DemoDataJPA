@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 @SpringBootTest
 class DemoJpaApplicationTests {
     @Autowired
@@ -67,8 +69,7 @@ class DemoJpaApplicationTests {
     @Test
     void cau_6_SoChuyenBayXuatPhatTuSg(){
         System.out.println("6.\tCó bao nhiêu chuyến bay xuất phát từ Sài Gòn (SGN).");
-        chuyenBayService.getChuyenBay().chuyenBaySG()
-                .forEach(System.out::println);
+        System.out.println(chuyenBayService.getChuyenBay().chuyenBaySG());
         System.out.println("!================================================!");
     }
 
@@ -106,6 +107,51 @@ class DemoJpaApplicationTests {
     void cau_11_MaSoMayBayNhanVienHoNguyenLai(){
         System.out.println("11.\tCho biết mã số của các loại máy bay mà nhân viên có họ Nguyễn có thể lái.");
         mayBayService.getMayBay().lstMMayBayDoPhiCongHoNguyenLai().forEach(System.out::println);
+        System.out.println("!================================================!");
+    }
+
+    @Test
+    void cau_12_MaPhiCongVuaLaiBoeingVuaLaiAirbus(){
+        System.out.println("12.\tCho biết mã số của các phi công vừa lái được Boeing vừa lái được Airbus.");
+        nhanVienService.getNhanVien().lstNhanVienLaiCaAirBusVaBoing()
+        .forEach(System.out::println);
+        System.out.println("!================================================!");
+    }
+
+    @Test
+    void cau_13_LoaiBayBayCoTheThucHienChuyenBayVN280(){
+        System.out.println("13.\tCho biết các loại máy bay có thể thực hiện chuyến bay VN280.");
+        mayBayService.getMayBay().lstLoaiMayBayBayDuocChuyen280()
+        .forEach(e -> {System.out.println(e.getLoai());});
+        System.out.println("!================================================!");
+    }
+
+    @Test
+    void cau_14_ChuyenBayDuocThucHienBoiAirbus320(){
+        System.out.println("14.\tCho biết các chuyến bay có thể ñược thực hiện bởi máy bay Airbus A320");
+        chuyenBayService.getChuyenBay().chuyenBayDuoCBayBoiAirbus320()
+                .forEach(System.out::println);
+        System.out.println("!================================================!");
+    }
+
+    //==
+    @Test
+    void cau_15_TenCacPhiCongLaiMayBayBo(){
+        System.out.println("15.\teingCho biết tên của các phi công lái máy bay Boeing");
+        nhanVienService.getNhanVien().maNhanVienBoeing()
+                .forEach(nv -> System.out.println(nv.getTen()));
+        System.out.println("!================================================!");
+    }
+
+    @Test
+    void cau_16_getLoaiMayBayVaTongSoPhiCongLaiMayBayDo(){
+        System.out.println("16.\tVới mỗi loại máy bay có phi công lái cho biết mã số, " +
+                "loại máy báy và tổng số phi công có thể lái loại máy bay đó.");
+        mayBayService.getMayBay().loaiMayBayCoPhiCongLai()
+                .forEach(e->{
+                    System.out.println(nhanVienService.getNhanVien()
+                    .getTongSoPhiCongLaiLoaiMayBay(e));
+                });
         System.out.println("!================================================!");
     }
 

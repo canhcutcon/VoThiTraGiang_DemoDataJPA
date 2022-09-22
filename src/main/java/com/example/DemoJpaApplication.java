@@ -62,32 +62,19 @@ public class DemoJpaApplication {
 //        System.out.println(nhanVienService.getNhanVien().getToTalOfSalary());
 //        System.out.println("!================================================!");
 
-        System.out.println("9.\tCho biết mã số của các phi công lái máy báy Boeing.");
-//        nhanVienService.getNhanVien().maNhanVienBoeing();
-        System.out.println("!================================================!");
-//
-//
+
 
 //        System.out.println("12.\tCho biết mã số của các phi công vừa lái được Boeing vừa lái được Airbus.");
 //        mayBayService.displayMayBayTamBayLonHon10000();
 //        System.out.println("!================================================!");
 //
-//        System.out.println("13.\tCho biết các loại máy bay có thể thực hiện chuyến bay VN280.");
-//        mayBayService.displayMayBayTamBayLonHon10000();
-//        System.out.println("!================================================!");
 //
-//        System.out.println("14.\tCho biết các chuyến bay có thể ñược thực hiện bởi máy bay Airbus A320");
-//        mayBayService.displayMayBayTamBayLonHon10000();
-//        System.out.println("!================================================!");
+
 //
 //        System.out.println("15.\tCho biết tên của các phi công lái máy bay Boeing");
 //        mayBayService.displayMayBayTamBayLonHon10000();
 //        System.out.println("!================================================!");
 //
-//        System.out.println("16.\tVới mỗi loại máy bay có phi công lái cho biết mã số, " +
-//                "loại máy báy và tổng số phi công có thể lái loại máy bay đó.");
-//        mayBayService.displayMayBayTamBayLonHon10000();
-//        System.out.println("!================================================!");
 //
 //        System.out.println("17.\tGiả sử một hành khách muốn đi thẳng từ ga A đến ga B rồi quay trở về ga A. " +
 //                "Cho biết các đường bay nào có thể đáp ứng yêu cầu này.");

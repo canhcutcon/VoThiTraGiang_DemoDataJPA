@@ -16,7 +16,7 @@ import java.io.Serializable;
 @Getter
 @Builder
 @Table(name = "chuyenbay")
-public class ChuyenBay implements Serializable {
+public class ChuyenBay {
     @Id
     @Column(name = "MaCB", unique=true)
     private String MaCB;

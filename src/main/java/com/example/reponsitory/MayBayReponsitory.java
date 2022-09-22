@@ -21,5 +21,13 @@ public interface MayBayReponsitory extends JpaRepository<MayBay,Integer> {
             "where nv.Ten like '%Nguyen%'",nativeQuery = true)
     public List<MayBay> lstMMayBayDoPhiCongHoNguyenLai();
 
+    @Query(value = "select * from maybay\n" +"where TamBay >= 11979",nativeQuery = true)
+    public List<MayBay> lstLoaiMayBayBayDuocChuyen280();
+
+    @Query(value = "select Loai from maybay\n" +
+            "where exists(select * from chungnhan cn join maybay m on m.MaMB = cn.MaMB)",nativeQuery = true)
+    public List<String> loaiMayBayCoPhiCongLai();
+
+
 
 }
