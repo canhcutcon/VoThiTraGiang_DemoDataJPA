@@ -84,39 +84,12 @@ public class DemoJpaApplication {
 //
 //
 //
-//        System.out.println("21. Với mỗi địa điểm xuất phát cho biết có bao nhiêu chuyến bay có thể khởi hành trước 12:00.");
-//        mayBayService.displayMayBayTamBayLonHon10000();
-//        System.out.println("!================================================!");
 //
-//        System.out.println("22.\tCho biết mã số của các phi công chỉ lái được 3 loại máy bay");
-//        mayBayService.displayMayBayTamBayLonHon10000();
-//        System.out.println("!================================================!");
 //
-//        System.out.println("23.\tVới mỗi phi công có thể lái nhiều hơn 3 loại máy bay, " +
-//                "cho biết mã số phi công và tầm bay lớn nhất của các loại máy bay mà phi công đó có thể lái.");
-//        mayBayService.displayMayBayTamBayLonHon10000();
-//        System.out.println("!================================================!");
 //
-//        System.out.println("24.\tVới mỗi phi công cho biết mã số phi công và tổng số loại máy bay mà phi công đó có thể lái.");
-//        mayBayService.displayMayBayTamBayLonHon10000();
-//        System.out.println("!================================================!");
 //
-//        System.out.println("25.\tTìm các nhân viên không phải là phi công.");
-//        mayBayService.displayMayBayTamBayLonHon10000();
-//        System.out.println("!================================================!");
 //
-//        System.out.println("26.\tCho biết mã số của các nhân viên có lương cao nhất.");
-//        mayBayService.displayMayBayTamBayLonHon10000();
-//        System.out.println("!================================================!");
-//
-//        System.out.println("27.\tCho biết tổng số lương phải trả cho các phi công.");
-//        mayBayService.displayMayBayTamBayLonHon10000();
-//        System.out.println("!================================================!");
-//
-//        System.out.println("28.\tTìm các chuyến bay có thể được thực hiện bởi tất cả các loại máy bay Boeing.");
-//        mayBayService.displayMayBayTamBayLonHon10000();
-//        System.out.println("!================================================!");
-    }
+ }
 
 
 }

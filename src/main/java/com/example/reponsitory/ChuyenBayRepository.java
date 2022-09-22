@@ -2,6 +2,7 @@ package com.example.reponsitory;
 
 import com.example.entity.ChuyenBay;
 import org.hibernate.engine.internal.ImmutableEntityEntry;
+import org.hibernate.tool.hbm2ddl.SchemaUpdate;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -46,4 +47,12 @@ public interface ChuyenBayRepository extends JpaRepository<ChuyenBay,String> {
     @Query(value = "select SUM(ChiPhi) from chuyenbay\n" +
             "group by GaDi",nativeQuery = true)
     public List<Integer> lstTongChiPhi();
+
+    @Query(value = "select * from chuyenbay\n" +
+            "where GioDi < '12:00' group by GaDi", nativeQuery = true)
+    public List<ChuyenBay> lstChuyenBayKhoiHanhTruoc12hTaiMoiGa();
+
+    @Query(value = "select distinct cb.* from chuyenbay cb,maybay mb\n" +
+            "where DoDai < TamBay and Loai  Like 'Boeing%'",nativeQuery = true)
+    public List<ChuyenBay> lstChuyenBayBayBangBoeing();
 }

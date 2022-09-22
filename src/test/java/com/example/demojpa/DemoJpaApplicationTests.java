@@ -1,6 +1,7 @@
 package com.example.demojpa;
 
 import com.example.reponsitory.ChuyenBayRepository;
+import com.example.reponsitory.NhanVienReponsitory;
 import com.example.service.ChuyenBayService;
 import com.example.service.MayBayService;
 import com.example.service.NhanVienService;
@@ -193,6 +194,65 @@ class DemoJpaApplicationTests {
         chuyenBayService.getChuyenBay().lstChuyenBayKhoiHanhTruoc12h()
                 .forEach(System.out::println);
         System.out.println("!================================================!");
+    }
+
+    @Test
+    void cau_21_ChuyenBayKhoiHanhTruoc12hTaiMoiGa(){
+        System.out.println("21. Với mỗi địa điểm xuất phát cho biết có bao nhiêu chuyến bay có thể khởi hành trước 12:00.");
+        chuyenBayService.getChuyenBay().lstChuyenBayKhoiHanhTruoc12hTaiMoiGa()
+                .forEach(System.out::println);
+        System.out.println("!================================================!");
+    }
+
+    @Test
+    void cau_22_MaSoCuaCacPhiCongChiLaiDuoc3LoaiMB(){
+        System.out.println("22.\tCho biết mã số của các phi công chỉ lái được 3 loại máy bay");
+        nhanVienService.getNhanVien().lstMaNVChiLaiDuoc3LoaiMB()
+                .forEach(System.out::println);
+
+    }
+
+    @Test
+    void cau_23_GetMaPhiCongVaTamBayLonNhatCuaLoaiMaiBayPhiCongCoTheLai(){
+        System.out.println("23.\tVới mỗi phi công có thể lái nhiều hơn 3 loại máy bay, " +
+                "cho biết mã số phi công và tầm bay lớn nhất của các loại máy bay mà phi công đó có thể lái.");
+        nhanVienService.getNhanVien().lstNhanVienLaiHon3LoaiMB()
+                .forEach(e -> System.out.println(e[0] + ": " + e[1] ));
+        System.out.println("!================================================!");
+    }
+
+    @Test
+    void cai_24_GetMaPhiCongVaTogLoaiMayBayCoTheLai(){
+        System.out.println("24.\tVới mỗi phi công cho biết mã số phi công và tổng số loại máy bay mà phi công đó có thể lái.");
+        nhanVienService.getNhanVien().lstMaNVVaTongLoaiMB()
+                .forEach(e -> System.out.println("Ma nv " + e[0] + ": " + e[1]));
+    }
+
+    @Test
+    void cau_25_NhanVienKhongPhaiPhiCong(){
+        System.out.println("25.\tTìm các nhân viên không phải là phi công.");
+        nhanVienService.getNhanVien().lstNhanVienKhongPhaiPhiCong()
+                .forEach(e -> System.out.println(e[0] + ": " + e[1]));
+    }
+
+    @Test
+    void cau_26_GetMaNhanVienCoLuongCaoNhat(){
+        System.out.println("26.\tCho biết mã số của các nhân viên có lương cao nhất.");
+        nhanVienService.getNhanVien().getMaNVCoLuongCaoNhat()
+                .forEach(e -> System.out.println(e[0] + " | " + e[1] + " | " + e[2]));
+    }
+
+    @Test
+    void cau_27_TongLuongPhaiTraChoPhiCong(){
+        System.out.println("27.\tCho biết tổng số lương phải trả cho các phi công.");
+        System.out.println(nhanVienService.getNhanVien().getTongLuongPhiCong());
+    }
+
+    @Test
+    void cau_28_CacChuyenBayThucHienBoiBoeing(){
+        System.out.println("28.\tTìm các chuyến bay có thể được thực hiện bởi tất cả các loại máy bay Boeing.");
+        chuyenBayService.getChuyenBay().lstChuyenBayBayBangBoeing()
+                .forEach(System.out::println);
     }
 
 

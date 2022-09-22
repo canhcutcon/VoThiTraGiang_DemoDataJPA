@@ -41,6 +41,32 @@ public interface NhanVienReponsitory extends JpaRepository<NhanVien,String> {
             "where m.Loai = :loai",nativeQuery = true)
     public int getTongSoPhiCongLaiLoaiMayBay(String loai);
 
+    @Query(value = "select nv.MaNV from nhanvien nv join chungnhan c on nv.MaNV = c.MaNV\n" +
+            "join maybay m on m.MaMB = c.MaMB\n" +
+            "group by nv.MaNV\n" +
+            "having count(m.Loai) = 3",nativeQuery = true)
+    public List<String> lstMaNVChiLaiDuoc3LoaiMB();
 
+    @Query(value = "select nv.MaNV, max(TamBay) from nhanvien nv join chungnhan c on nv.MaNV = c.MaNV\n" +
+            "                                join maybay m on m.MaMB = c.MaMB\n" +
+            "group by nv.MaNV\n" +
+            "having count(m.Loai) >= 3",nativeQuery = true)
+    public List<Object[]> lstNhanVienLaiHon3LoaiMB();
 
+    @Query(value = "select nv.MaNV, count(Loai) from nhanvien nv join chungnhan c on nv.MaNV = c.MaNV\n" +
+            "                                join maybay m on m.MaMB = c.MaMB\n" +
+            "group by nv.MaNV", nativeQuery = true)
+    public List<Object[]> lstMaNVVaTongLoaiMB();
+
+    @Query(value = "select  MaNV,Ten from nhanvien \n" +
+            "where MaNV not in (select MaNV from chungnhan)",nativeQuery = true)
+    public List<Object[]> lstNhanVienKhongPhaiPhiCong();
+
+    @Query(value = "select MaNV,Ten,Luong\n" +
+            "from nhanvien where Luong in (select MAX(Luong) from nhanvien)",nativeQuery = true)
+    public List<Object[]> getMaNVCoLuongCaoNhat();
+
+    @Query(value = "select SUM(Luong) from nhanvien\n" +
+            "where MaNV in (select MaNV from chungnhan)",nativeQuery = true)
+    public int getTongLuongPhiCong();
 }
