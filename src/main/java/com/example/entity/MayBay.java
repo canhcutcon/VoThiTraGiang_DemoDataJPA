@@ -15,6 +15,7 @@ import java.util.Set;
 @Getter
 @Builder
 @Table(name = "maybay")
+@ToString
 public class MayBay implements Serializable {
 
     @Id

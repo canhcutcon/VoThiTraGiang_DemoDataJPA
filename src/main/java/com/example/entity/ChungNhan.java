@@ -13,6 +13,7 @@ import java.io.Serializable;
 @Getter
 @Builder
 @Table(name = "chungnhan")
+@ToString
 public class ChungNhan implements Serializable {
 //    @EmbeddedId
 //    protected  ChungNhanID chungNhanID;

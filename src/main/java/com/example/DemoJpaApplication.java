@@ -81,19 +81,8 @@ public class DemoJpaApplication {
 //        mayBayService.displayMayBayTamBayLonHon10000();
 //        System.out.println("!================================================!");
 //
-//        System.out.println("18. Với mỗi ga có chuyến bay xuất phát từ đó" +
-//                " cho biết có bao nhiêu chuyến bay khởi hành từ ga đó.");
-//        mayBayService.displayMayBayTamBayLonHon10000();
-//        System.out.println("!================================================!");
 //
-//        System.out.println("18. Với mỗi ga có chuyến bay xuất phát " +
-//                "từ đó cho biết có bao nhiêu chuyến bay khởi hành từ ga đó.");
-//        mayBayService.displayMayBayTamBayLonHon10000();
-//        System.out.println("!================================================!");
 //
-//        System.out.println("20.\tCho biết danh sách các chuyến bay có thể khởi hành trước 12:00");
-//        mayBayService.displayMayBayTamBayLonHon10000();
-//        System.out.println("!================================================!");
 //
 //        System.out.println("21. Với mỗi địa điểm xuất phát cho biết có bao nhiêu chuyến bay có thể khởi hành trước 12:00.");
 //        mayBayService.displayMayBayTamBayLonHon10000();

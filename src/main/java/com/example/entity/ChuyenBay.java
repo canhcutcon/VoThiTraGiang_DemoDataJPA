@@ -16,6 +16,7 @@ import java.io.Serializable;
 @Getter
 @Builder
 @Table(name = "chuyenbay")
+@ToString
 public class ChuyenBay {
     @Id
     @Column(name = "MaCB", unique=true)

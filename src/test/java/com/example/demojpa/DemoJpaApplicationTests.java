@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.persistence.Tuple;
 import java.util.List;
+import java.util.Map;
 
 @SpringBootTest
 class DemoJpaApplicationTests {
@@ -154,6 +156,47 @@ class DemoJpaApplicationTests {
                 });
         System.out.println("!================================================!");
     }
+
+    @Test
+    void cau_17_getDuongBayCoTheDiThangTuAdenBRoiVeA(){
+        System.out.println("17.\tGiả sử một hành khách muốn đi thẳng từ ga A đến ga B rồi quay trở về ga A. " +
+                "Cho biết các đường bay nào có thể đáp ứng yêu cầu này.");
+        chuyenBayService.getChuyenBay().lstChuyenBayDiThang()
+                .forEach(System.out::println);
+        System.out.println("!================================================!");
+
+    }
+
+    @Test
+    void cau_18_SoChuyenBayKhoiHanhOMoiGa(){
+        System.out.println("18. Với mỗi ga có chuyến bay xuất phát từ đó" +
+                " cho biết có bao nhiêu chuyến bay khởi hành từ ga đó.");
+        List<String> gaDi = chuyenBayService.getChuyenBay().getGaDi();
+        gaDi.forEach(e-> System.out.println(e +": "+ chuyenBayService.getChuyenBay()
+                                                        .lstSoChuyenBayTheoGaDi().get(gaDi.indexOf(e))));
+        System.out.println("!================================================!");
+    }
+
+    @Test
+    void cau_19_TongChiPhiTraChoPhiCongOMoiGa(){
+        System.out.println("19.Với mỗi ga có chuyến  bay xuất phát " +
+                        "từ đó cho biết tổng chi phí phải trả cho phi công lái các chuyến bay khởi hành từ ga đó");
+        List<String> gaDi = chuyenBayService.getChuyenBay().getGaDi();
+        gaDi.forEach(e-> System.out.println(e +": "+ chuyenBayService.getChuyenBay()
+                .lstTongChiPhi().get(gaDi.indexOf(e))));
+        System.out.println("!================================================!");
+    }
+
+    @Test
+    void cau_20_DanHSachChuyenBayKhoiHanhTruoc12h(){
+        System.out.println("20.\tCho biết danh sách các chuyến bay có thể khởi hành trước 12:00");
+        chuyenBayService.getChuyenBay().lstChuyenBayKhoiHanhTruoc12h()
+                .forEach(System.out::println);
+        System.out.println("!================================================!");
+    }
+
+
+
 
 
 }
