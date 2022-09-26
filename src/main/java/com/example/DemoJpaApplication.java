@@ -11,23 +11,23 @@ import javax.annotation.PostConstruct;
 
 @SpringBootApplication
 public class DemoJpaApplication {
-    final ChuyenBayService chuyenBayService;
-    final MayBayService mayBayService;
-    final NhanVienService nhanVienService;
-
-    public DemoJpaApplication(ChuyenBayService chuyenBayService,
-                              MayBayService mayBayService, NhanVienService nhanVienService) {
-        this.chuyenBayService = chuyenBayService;
-        this.nhanVienService = nhanVienService;
-        this.mayBayService = mayBayService;
-    }
+//    final ChuyenBayService chuyenBayService;
+//    final MayBayService mayBayService;
+//    final NhanVienService nhanVienService;
+//
+//    public DemoJpaApplication(ChuyenBayService chuyenBayService,
+//                              MayBayService mayBayService, NhanVienService nhanVienService) {
+//        this.chuyenBayService = chuyenBayService;
+//        this.nhanVienService = nhanVienService;
+//        this.mayBayService = mayBayService;
+//    }
     public static void main(String[] args) {
         SpringApplication.run(DemoJpaApplication.class, args);
     }
-    @PostConstruct
-    void postConstruct(){
-        System.out.println("1.\tCho biết các chuyến bay đi Đà Lạt (DAD).");
-        chuyenBayService.displayAllChuyenBay();
-        System.out.println("!================================================!");
-}
+//    @PostConstruct
+//    void postConstruct(){
+//        System.out.println("1.\tCho biết các chuyến bay đi Đà Lạt (DAD).");
+//        chuyenBayService.displayAllChuyenBay();
+//        System.out.println("!================================================!");
+//}
 }

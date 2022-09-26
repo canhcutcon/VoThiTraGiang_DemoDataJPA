@@ -2,8 +2,6 @@ package com.example.reponsitory;
 
 import com.example.entity.ChungNhan;
 import com.example.entity.NhanVien;
-import com.jayway.jsonpath.ValueCompareException;
-import com.jayway.jsonpath.internal.function.numeric.Sum;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
