@@ -1,9 +1,7 @@
-package com.example.fitter;
+package com.example.config;
 
-import com.example.authen.UserPrincipal;
-import com.example.entity.Authentication.Token;
-import com.example.service.authentication.TokenService;
-import com.example.utils.JwtUtil;
+import com.example.entity.Authentication.entity.Token;
+import com.example.service.authenService.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
@@ -33,40 +31,28 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     private TokenService verificationTokenService;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request,
-                                    HttpServletResponse response,
-                                    FilterChain filterChain)
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
-
-        final String authorizationHeader
-                = request.getHeader("Authorization");
+        final String authorizationHeader = request.getHeader("Authorization");
 
         UserPrincipal user = null;
         Token token = null;
-
-
-        if (StringUtils.hasText(authorizationHeader) &&
-                authorizationHeader.startsWith("Token ")) {
+        if (StringUtils.hasText(authorizationHeader) && authorizationHeader.startsWith("Token ")) {
             String jwt = authorizationHeader.substring(6);
-
             user = jwtUtil.getUserFromToken(jwt);
             token = verificationTokenService.findByToken(jwt);
         }
 
         if (null != user && null != token && token.getTokenExpDate().after(new Date())) {
-
             Set<GrantedAuthority> authorities = new HashSet<>();
-
-            user.getAuthorities().forEach(
-                    p -> authorities.add(new SimpleGrantedAuthority((String) p)));
-
+            user.getAuthorities().forEach(p -> authorities.add(new SimpleGrantedAuthority((String) p)));
             UsernamePasswordAuthenticationToken authentication =
                     new UsernamePasswordAuthenticationToken(user, null, authorities);
-
             authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }
+
         filterChain.doFilter(request, response);
     }
+
 }

@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -32,10 +33,10 @@ public class ChuyenBay {
     private Integer DoDai;
 
     @Column(name = "GioDi")
-    private Integer GioDi;
+    private LocalDate GioDi;
 
     @Column(name = "GioDen")
-    private Integer GioDen;
+    private LocalDate GioDen;
 
     @Column(name = "ChiPhi")
     private Integer ChiPhi;

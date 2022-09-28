@@ -28,6 +28,4 @@ public class MayBay implements Serializable {
     @Column(name = "TamBay")
     private Integer TamBay;
 
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "maybay")
-//    private Set<ChungNhan> lstChungNhan = new HashSet<>();
 }

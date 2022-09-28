@@ -1,4 +1,4 @@
-package com.example.entity.Authentication;
+package com.example.entity.Authentication.entity;
 
 import lombok.Getter;
 import lombok.Setter;

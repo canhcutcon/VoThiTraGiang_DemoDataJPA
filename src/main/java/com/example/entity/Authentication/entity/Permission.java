@@ -1,5 +1,4 @@
-package com.example.entity.Authentication;
-
+package com.example.entity.Authentication.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +10,7 @@ import javax.persistence.Table;
 @Table(name = "t_permission")
 @Getter
 @Setter
-public class Pessmistion extends BaseEntity {
+public class Permission extends BaseEntity {
 
     private String permissionName;
 

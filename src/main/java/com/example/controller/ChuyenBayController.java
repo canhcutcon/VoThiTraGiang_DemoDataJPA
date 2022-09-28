@@ -15,11 +15,5 @@ public class ChuyenBayController {
     @Autowired
     ChuyenBayService chuyenBayService;
 
-    @GetMapping(value = "/chuyenbay")
-    public List<ChuyenBay> chuyenbays()
-    {
-        List<ChuyenBay> chuyenBays = chuyenBayService.getChuyenBay().chuyenBayDenDaLat();
-//        model.addAttribute("lstChuyenBay", chuyenBays);
-        return chuyenBays;
-    }
+
 }

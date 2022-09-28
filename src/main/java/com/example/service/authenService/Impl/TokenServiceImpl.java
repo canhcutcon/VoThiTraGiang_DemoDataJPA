@@ -1,8 +1,8 @@
-package com.example.service.authentication;
+package com.example.service.authenService.Impl;
 
-import com.example.entity.Authentication.Token;
-import com.example.spring_boot_api_jwt_ad.entity.Token;
-import com.example.spring_boot_api_jwt_ad.repository.TokenRepository;
+import com.example.entity.Authentication.entity.Token;
+import com.example.reponsitory.authenReponsitory.TokenRepository;
+import com.example.service.authenService.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,4 +21,3 @@ public class TokenServiceImpl implements TokenService {
         return tokenRepository.findByToken(token);
     }
 }
-

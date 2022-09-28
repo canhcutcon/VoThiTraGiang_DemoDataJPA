@@ -28,5 +28,4 @@ public class HomeController {
         return ResponseEntity.ok(nhanVienService.getNhanVien().lstNhanVien());
     }
 
-
 }

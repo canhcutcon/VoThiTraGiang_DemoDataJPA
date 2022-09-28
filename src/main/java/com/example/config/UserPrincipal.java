@@ -1,4 +1,4 @@
-package com.example.authen;
+package com.example.config;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,8 +6,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
-
-@Getter@Setter
+@Getter
+@Setter
 public class UserPrincipal implements UserDetails {
     private Long userId;
     private String username;

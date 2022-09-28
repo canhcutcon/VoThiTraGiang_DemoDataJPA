@@ -28,7 +28,5 @@ public class NhanVien implements Serializable {
     @Column(name = "Luong")
     private Integer Luong;
 
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "nhanvien")
-//    private Collection<ChungNhan> lstChungNhan;
 
 }

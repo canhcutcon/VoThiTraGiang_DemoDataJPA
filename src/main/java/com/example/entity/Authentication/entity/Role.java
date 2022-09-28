@@ -1,4 +1,4 @@
-package com.example.entity.Authentication;
+package com.example.entity.Authentication.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +17,7 @@ public class Role extends BaseEntity {
 
     private String roleKey;
 
-    @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
     @JoinTable(name = "t_role_permission", joinColumns = {@JoinColumn(name = "role_id")}, inverseJoinColumns = {@JoinColumn(name = "permission_id")})
-    private Set<Pessmistion> permissions = new HashSet<>();
+    private Set<Permission> permissions = new HashSet<>();
 }

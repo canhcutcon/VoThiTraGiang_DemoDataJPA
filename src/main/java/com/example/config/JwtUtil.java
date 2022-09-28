@@ -1,6 +1,5 @@
-package com.example.utils;
+package com.example.config;
 
-import com.example.authen.UserPrincipal;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nimbusds.jose.*;
 import com.nimbusds.jose.crypto.MACSigner;
@@ -16,13 +15,10 @@ import java.text.ParseException;
 import java.util.Date;
 
 @Component
-
 public class JwtUtil {
-
     private static Logger logger = LoggerFactory.getLogger(JwtUtil.class);
-    private static final String USER = "tien";
-    private static final String SECRET = "hey Mr Tien the secrect length must be at least 256 bits" +
-                                             " please no reveal!";
+    private static final String USER = "user";
+    private static final String SECRET = "vothitragiang1951077102032001thisismysercectkey256bit";
 
     public String generateToken(UserPrincipal user) {
         String token = null;
