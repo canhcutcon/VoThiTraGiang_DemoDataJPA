@@ -101,4 +101,22 @@ public class ChuyenBayController {
         );
     }
 
+    @GetMapping("/getCau21")
+    @PreAuthorize("hasAnyAuthority('USER_READ')")
+    public ResponseEntity<List<ChuyenBay>> getCacChuyenBayKhoiHanhTruoc12HTaiMoiGA(){
+        return new ResponseEntity<List<ChuyenBay>>(
+                chuyenBayService.getChuyenBay().lstChuyenBayKhoiHanhTruoc12hTaiMoiGa(),
+                HttpStatus.OK
+        );
+    }
+
+    @GetMapping("/getCau28")
+    @PreAuthorize("hasAnyAuthority('USER_READ')")
+    public ResponseEntity<List<ChuyenBay>> getChuyenBayThucHienBoiBoeing(){
+        return new ResponseEntity<List<ChuyenBay>>(
+                chuyenBayService.getChuyenBay().lstChuyenBayBayBangBoeing(),
+                HttpStatus.OK
+        );
+    }
+
 }

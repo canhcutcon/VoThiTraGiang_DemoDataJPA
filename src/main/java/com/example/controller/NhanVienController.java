@@ -65,5 +65,61 @@ public class NhanVienController {
         );
     }
 
+    @GetMapping("/getCau22")
+    @PreAuthorize("hasAnyAuthority('USER_READ')")
+    public ResponseEntity<List<String>> getMaCacPhiCongChiLaiDuoc3LoaiMayBay(){
+        return new ResponseEntity<List<String>>(
+                nhanVienService.getNhanVien().lstMaNVChiLaiDuoc3LoaiMB(),
+                HttpStatus.OK
+        );
+    }
+
+    @GetMapping("/getCau23")
+    @PreAuthorize("hasAnyAuthority('USER_READ')")
+    public ResponseEntity<List<Object[]>> getMaPhiCongVaTamBayLonNhat(){
+        return new  ResponseEntity<List<Object[]>>(
+                nhanVienService.getNhanVien().lstNhanVienLaiHon3LoaiMB(),
+        HttpStatus.OK
+                );
+    }
+
+    @GetMapping("/getCau24")
+    @PreAuthorize("hasAnyAuthority('USER_READ')")
+    public ResponseEntity<List<Object[]>> getMaPhiCongVaTongLoaiMayBay(){
+        return new ResponseEntity<List<Object[]>>(
+                nhanVienService.getNhanVien().lstMaNVVaTongLoaiMB(),
+                HttpStatus.OK
+        );
+    }
+
+    @GetMapping("/getCau25")
+    @PreAuthorize("hasAnyAuthority('USER_READ')")
+    public ResponseEntity<List<Object[]>> getNhanVienKhongPhaiPhiCong(){
+        return new ResponseEntity<List<Object[]>>(
+                nhanVienService.getNhanVien().lstNhanVienKhongPhaiPhiCong(),
+                HttpStatus.OK
+        );
+    }
+
+    @GetMapping("/getCau26")
+    @PreAuthorize("hasAnyAuthority('USER_READ')")
+    public ResponseEntity<List<Object[]>> getNhanVienCoLuongCaoNhat(){
+        return new ResponseEntity<List<Object[]>>(
+                nhanVienService.getNhanVien().getMaNVCoLuongCaoNhat(),
+                HttpStatus.OK
+        );
+    }
+
+    @GetMapping("/getCau27")
+    @PreAuthorize("hasAnyAuthority('USER_READ')")
+    public ResponseEntity<Integer> getTongLuongPhiCong(){
+        return new ResponseEntity<Integer>(
+                nhanVienService.getNhanVien().getTongLuongPhiCong(),
+                HttpStatus.OK
+        );
+    }
+
+
+
 
 }
