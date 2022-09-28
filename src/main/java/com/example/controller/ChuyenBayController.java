@@ -9,6 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -59,4 +60,45 @@ public class ChuyenBayController {
                 HttpStatus.OK
         );
     }
+
+    @GetMapping("/getCau17")
+    @PreAuthorize("hasAnyAuthority('USER_READ')")
+    public ResponseEntity<List<ChuyenBay>> getChuyenBayBayThangTUADenB(){
+        return new ResponseEntity<List<ChuyenBay>>(
+                chuyenBayService.getChuyenBay().lstChuyenBayDiThang(),
+                HttpStatus.OK
+        );
+    }
+
+    @GetMapping("/getCau18")
+    @PreAuthorize("hasAnyAuthority('USER_READ')")
+    public ResponseEntity<HashMap<String, Integer>> getGavaSoChuyenBayTaiMoiGa(){
+        HashMap<String,Integer> lst = new HashMap<>();
+        List<String> gaDi = chuyenBayService.getChuyenBay().getGaDi();
+        gaDi.forEach(e->lst.put(e,chuyenBayService.getChuyenBay()
+                .lstSoChuyenBayTheoGaDi().get(gaDi.indexOf(e))));
+        return new ResponseEntity<HashMap<String,Integer>>(
+                lst,HttpStatus.OK
+        );
+    }
+
+    @GetMapping("/getCau19")
+    @PreAuthorize("hasAnyAuthority('USER_READ')")
+    public ResponseEntity<HashMap<String, Integer>> getTongChiPhiOMoiGa(){
+        HashMap<String,Integer> lst = new HashMap<>();
+        List<String> gaDi = chuyenBayService.getChuyenBay().getGaDi();
+        gaDi.forEach(e-> lst.put(e, chuyenBayService.getChuyenBay()
+                .lstTongChiPhi().get(gaDi.indexOf(e))));
+        return new ResponseEntity<HashMap<String,Integer>>(lst,HttpStatus.OK);
+    }
+
+    @GetMapping("/getCau20")
+    @PreAuthorize("hasAnyAuthority('USER_READ')")
+    public ResponseEntity<List<ChuyenBay>> getCacChuyenBayKhoiHanhTruoc12H(){
+        return new ResponseEntity<List<ChuyenBay>>(
+                chuyenBayService.getChuyenBay().lstChuyenBayKhoiHanhTruoc12h(),
+                HttpStatus.OK
+        );
+    }
+
 }
