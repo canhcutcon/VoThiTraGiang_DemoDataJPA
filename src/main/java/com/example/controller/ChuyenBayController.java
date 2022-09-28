@@ -44,5 +44,19 @@ public class ChuyenBayController {
                 .chuyenBaySGDiBuonMe(),HttpStatus.OK);
     }
 
+    @GetMapping("/cau_6_SoChuyenBayXuatPhatTuSg")
+    @PreAuthorize("hasAnyAuthority('USER_READ')")
+    public ResponseEntity<Integer> getCau6(){
+        return new ResponseEntity<Integer>(chuyenBayService.getChuyenBay()
+        .chuyenBaySG(),HttpStatus.OK);
+    }
 
+    @GetMapping("/getCau14")
+    @PreAuthorize("hasAnyAuthority('USER_READ')")
+    public ResponseEntity<List<ChuyenBay>> getChuyenBayDuocThucHienBoiAirbus320(){
+        return new ResponseEntity<List<ChuyenBay>>(
+                chuyenBayService.getChuyenBay().chuyenBayDuoCBayBoiAirbus320(),
+                HttpStatus.OK
+        );
+    }
 }

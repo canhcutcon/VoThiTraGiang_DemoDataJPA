@@ -22,4 +22,48 @@ public class NhanVienController {
         return new ResponseEntity<List<NhanVien>>(nhanVienService.getNhanVien()
                 .lstNhanVien(), HttpStatus.OK);
     }
+
+    @GetMapping("/cau8_tongLuongPhaiTraChoNhanVien")
+    @PreAuthorize("hasAnyAuthority('USER_READ')")
+    public ResponseEntity<Integer> getCau8(){
+        return new ResponseEntity<Integer>(Math.toIntExact(nhanVienService.getNhanVien().getToTalOfSalary()),HttpStatus.OK);
+    }
+
+    @GetMapping("/cau9_maSoCacPhiCongLaiMayBAyBoeing")
+    @PreAuthorize("hasAnyAuthority('USER_READ')")
+    public ResponseEntity<List<NhanVien>> getCau9(){
+        return new ResponseEntity<List<NhanVien>>(
+                nhanVienService.getNhanVien().maNhanVienBoeing(),
+                HttpStatus.OK
+        );
+    }
+
+    @GetMapping("/cau10_cacNhanVienCoTheLaiMayBay747")
+    @PreAuthorize("hasAnyAuthority('USER_READ')")
+    public ResponseEntity<List<NhanVien>> getCau10(){
+        return new ResponseEntity<List<NhanVien>>(
+                nhanVienService.getNhanVien().nhanVienLaiMB747(),
+                HttpStatus.OK
+        );
+    }
+
+    @GetMapping("/getCau12")
+    @PreAuthorize("hasAnyAuthority('USER_READ')")
+    public ResponseEntity<List<NhanVien>> getMaSoNhanVienVuaLaiDuocBoeingVuaLaiDuocAirbus(){
+        return new ResponseEntity<List<NhanVien>>(
+                nhanVienService.getNhanVien().lstNhanVienLaiCaAirBusVaBoing(),
+                HttpStatus.OK
+        );
+    }
+
+    @GetMapping("/getCau15")
+    @PreAuthorize("hasAnyAuthority('USER_READ')")
+    public ResponseEntity<List<NhanVien>> getTenCacPhiCongLaiMayBayBoeing(){
+        return new ResponseEntity<List<NhanVien>>(
+                nhanVienService.getNhanVien().maNhanVienBoeing(),
+                HttpStatus.OK
+        );
+    }
+
+
 }
