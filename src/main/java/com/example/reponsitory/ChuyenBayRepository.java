@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface ChuyenBayRepository extends JpaRepository<ChuyenBay,String> {
-    @Query(value = "SELECT * FROM chuyenbay where GaDen = DAD", nativeQuery = true)
+    @Query(value = "SELECT * FROM chuyenbay where GaDen = 'DAD'", nativeQuery = true)
     public List<ChuyenBay> chuyenBayDenDaLat();
 
     @Query(value = "select * from chuyenbay where DoDai < 10000", nativeQuery = true)
