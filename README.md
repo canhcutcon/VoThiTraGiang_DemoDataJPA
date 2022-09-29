@@ -1,9 +1,9 @@
 <h2> Deploy app with docker:  </h2>
 <h2>mysql</h2>
 <img src="./minhChung/deploy-mysql-docker.png" alt="Alt text" title="msql-docker">
-<h2>mysql</h2>
+<h2>springboot</h2>
 <img src="./minhChung/deploy-springboot-docker.png" alt="Alt text" title="springboot-docker">
-<h1> ==================== minh chung api ================= </h1>
+<h1> =========== minh chung api ============ </h1>
 <h2> Câu 1:  </h2>
 <img src="./minhChung/api_cau1.png" alt="Alt text" title="Câu 1">
 
